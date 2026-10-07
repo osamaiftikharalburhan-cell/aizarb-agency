@@ -46,10 +46,10 @@ export async function POST(req: Request) {
   const resend = new Resend(apiKey);
 
   try {
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'onboarding@resend.dev',
       to: [to],
-      reply_to: email,
+      replyTo: email,
       subject: `New enquiry: ${service} — ${name}`,
       text: `Full Name: ${name}\nBusiness Email: ${email}\nService Type: ${service}\n\nProject Details:\n${details}`,
       html: `
