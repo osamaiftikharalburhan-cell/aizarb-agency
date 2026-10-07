@@ -47,9 +47,9 @@ export async function POST(req: Request) {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: 'AIZARB Website <onboarding@resend.dev>',
+      from: 'onboarding@resend.dev',
       to: [to],
-      replyTo: email,
+      reply_to: email,
       subject: `New enquiry: ${service} — ${name}`,
       text: `Full Name: ${name}\nBusiness Email: ${email}\nService Type: ${service}\n\nProject Details:\n${details}`,
       html: `
@@ -67,7 +67,7 @@ export async function POST(req: Request) {
 
     if (error) {
       console.error('Resend API error:', error);
-      return NextResponse.json({ error: 'Could not send message' }, { status: 502 });
+      return NextResponse.json({ error: error.message || 'Could not send message' }, { status: 502 });
     }
 
     return NextResponse.json({ ok: true });
