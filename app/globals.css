@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap');
+@import 'tailwindcss';
+
+/* AIZARB brand tokens (from the AIZarb Brand Kit) */
+@theme {
+  --color-ink: #16141a;
+  --color-ink-deep: #0f0d12;
+  --color-card: #1e1b24;
+  --color-line: #35313d;
+  --color-strike: #d62828;
+  --color-strike-dark: #b31f1f;
+  --color-gold: #c9a227;
+  --color-parchment: #f3efe7;
+  --color-blush: #f3d9d9;
+  --color-mute: #8b8792;
+  --color-soft: #c9c4ce;
+  --color-slate: #5b5760;
+  --color-graphite: #3a363f;
+
+  --font-display: 'Anton', sans-serif;
+  --font-sans: 'Work Sans', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-ink);
+}
