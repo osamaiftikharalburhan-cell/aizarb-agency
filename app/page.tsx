@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Footer from '../components/Footer';
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 
 /* ------------------------------------------------------------------ */
@@ -548,13 +549,7 @@ export default function Page() {
             </div>
 
             {/* Footer rule, as on the launch post */}
-            <footer className="flex flex-col gap-4 border-t-2 border-line pt-8 md:flex-row md:items-center md:justify-between">
-              <Wordmark className="text-[36px]" />
-              <p className="m-0 text-sm text-mute">© 2026 AIZARB. All rights reserved. ONE STRIKE. REAL IMPACT.</p>
-              <a href="https://aizarb.com" className="font-mono text-lg font-medium text-parchment transition hover:text-gold">
-                AIZARB.COM
-              </a>
-            </footer>
+            <Footer />
           </div>
         </section>
       </main>

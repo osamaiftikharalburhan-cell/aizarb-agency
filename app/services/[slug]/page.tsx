@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import type { ReactNode } from 'react';
+import Footer from '../../../components/Footer';
 
 /* ------------------------------------------------------------------ */
 /* Types                                                               */
@@ -455,6 +456,8 @@ export default async function ServicePage({ params }: Props) {
             Get a Free Consultation
           </Link>
         </div>
+
+        <Footer className="mt-20 lg:mt-24" />
       </div>
     </main>
   );
