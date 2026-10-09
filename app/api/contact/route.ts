@@ -59,15 +59,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'Input too long' }, { status: 400 });
   }
 
-  // Save and notify in parallel. Either one succeeding means the lead isn't lost,
-  // so the visitor sees success; failures are logged for follow-up.
-  const [db, mail] = await Promise.allSettled([saveLead(lead), sendLeadEmail(lead)]);
-
-  if (db.status === 'rejected') console.error('Contact form: lead not saved to database', db.reason, lead);
-  if (mail.status === 'rejected') console.error('Contact form: notification email failed', mail.reason, lead);
-
-  if (db.status === 'rejected' && mail.status === 'rejected') {
-    return NextResponse.json({ error: 'Could not send message. Please try again later.' }, { status: 502 });
+  // Direct execution with explicit error catching
+  try {
+    await saveLead(lead);
+    await sendLeadEmail(lead);
+    return NextResponse.json({ ok: true });
+  } catch (err: any) {
+    console.error('Contact Form Execution Error:', err);
+    return NextResponse.json(
+      { error: err.message || 'Failed to submit form' },
+      { status: 500 }
+    );
   }
-  return NextResponse.json({ ok: true });
 }
