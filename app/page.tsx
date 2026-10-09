@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useEffect, useState, type FormEvent, type ReactNode } from 'react';
 
 /* ------------------------------------------------------------------ */
@@ -304,17 +305,21 @@ export default function Page() {
             {/* Service cards */}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {SERVICES.map((s) => (
-                <article
+                <Link
                   key={s.id}
                   id={s.id}
-                  className={`flex scroll-mt-24 flex-col gap-[18px] rounded-[18px] p-[30px] text-parchment transition duration-300 hover:-translate-y-1 ${
+                  href={`/services/${s.id}`}
+                  className={`group flex scroll-mt-24 flex-col gap-[18px] rounded-[18px] p-[30px] text-parchment transition duration-300 hover:-translate-y-1 hover:shadow-[0_12px_32px_rgba(214,40,40,0.3)] ${
                     s.featured ? 'bg-strike' : 'bg-ink'
                   }`}
                 >
                   {s.icon}
                   <h3 className="m-0 font-display text-2xl tracking-[0.01em]">{s.title}</h3>
                   <p className={`m-0 text-lg leading-[1.45] ${s.featured ? 'text-blush' : 'text-soft'}`}>{s.body}</p>
-                </article>
+                  <span className="mt-auto font-mono text-sm tracking-[0.08em] transition-transform group-hover:translate-x-1">
+                    LEARN MORE →
+                  </span>
+                </Link>
               ))}
             </div>
 
