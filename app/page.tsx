@@ -329,20 +329,6 @@ export default function Page() {
               <a href="https://aizarb.com" className="font-display text-[30px] tracking-[0.01em] text-ink">
                 AIZARB.COM
               </a>
-              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
-                <a
-                  href="mailto:osama.iftikhar.alburhan@gmail.com"
-                  className="inline-flex items-center justify-center break-all rounded-full border-2 border-ink px-[22px] py-[14px] font-display text-xl leading-none tracking-[0.02em] text-ink transition hover:bg-ink hover:text-parchment"
-                >
-                  osama.iftikhar.alburhan@gmail.com
-                </a>
-                <a
-                  href="tel:+923132698198"
-                  className="inline-flex items-center justify-center rounded-full border-2 border-strike bg-strike px-[22px] py-[14px] font-display text-xl leading-none tracking-[0.02em] text-parchment transition hover:border-strike-dark hover:bg-strike-dark"
-                >
-                  +92 313 2698198
-                </a>
-              </div>
             </div>
           </div>
         </section>
